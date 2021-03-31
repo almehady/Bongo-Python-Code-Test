@@ -1,4 +1,3 @@
-
 a = {
     "key1": 1,
     "key2": {
@@ -10,18 +9,21 @@ a = {
                 }
             }
         }
-    }
+    },
+    "key8": 8
 }
 
 
 def print_depth(data):
-    d = 1
-    def depth(data, d):
+    # set the step here
+    step = 1
+    def depth(data, step):
         for key in data:
+            # check if the key is a dictionary
             if type(data[key]) == dict:
-                print(key + " " + str(d))
-                depth(data[key], d+1)
+                print(key + " " + str(step))
+                depth(data[key], step+1)
             else:
-                print(key + " " + str(d))
-    depth(data, d)
+                print(key + " " + str(step))
+    depth(data, step)
 print_depth(a)
